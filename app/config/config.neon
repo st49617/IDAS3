@@ -20,11 +20,16 @@ session:
 #    password:
 
 database:
-	dsn: 'mysql:host=127.0.0.1;dbname=test'
-	user:
-	password:
-	options:
-		lazy: yes
+    databaseOne:
+        dsn: 'mysql:host=127.0.0.1;dbname=test'
+        user: 'root'
+        password:
+        options:
+            lazy: yes
+    databaseTwo:
+        dsn: 'oci:dbname=(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = 127.0.0.1)(PORT = 1521)))(CONNECT_DATA =(SID = oteam)))'
+        user: 'sys'
+        password: 'oteamoteam'
 
 
 services:
@@ -32,4 +37,7 @@ services:
 	- App\Forms\FormFactory
 	- App\Forms\SignInFormFactory
 	- App\Forms\SignUpFormFactory
+
+	- App\ModuleOne\ModuleOneDatabseModel(@database.databaseOne.context)
+	- App\ModuleOne\ModuleTwoDatabseModel(@database.databaseTwo.context)
 	router: App\RouterFactory::createRouter

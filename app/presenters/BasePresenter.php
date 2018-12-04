@@ -10,4 +10,9 @@ use Nette;
  */
 abstract class BasePresenter extends Nette\Application\UI\Presenter
 {
+    /**Nastavení defaultního layoutu*/
+    public function formatLayoutTemplateFiles()
+    {
+        return [__DIR__ . '/templates/@layout.latte'];
+    }
 }
