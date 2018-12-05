@@ -33,7 +33,7 @@ class ExtendDatabase{
 
     public function query($query)
     {
-        return $this->database->query();
+        return $this->database->query($query);
     }
 //
 //    public function imageSave(Nette\Http\FileUpload $image, $description, $idDecoration = NULL) {
