@@ -38,6 +38,7 @@ services:
 	- App\Forms\SignInFormFactory
 	- App\Forms\SignUpFormFactory
 
+	- Extend\Database\ExtendDatabase
 	- App\ModuleOne\ModuleOneDatabseModel(@database.databaseOne.context)
 	- App\ModuleOne\ModuleTwoDatabseModel(@database.databaseTwo.context)
 	router: App\RouterFactory::createRouter

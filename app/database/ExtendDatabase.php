@@ -12,23 +12,28 @@ namespace Extend\Database;
 use Nette;
 //use PDO;
 
-class ExtendDatabase extends Nette\Database\Context {
+class ExtendDatabase{
 //
-//    private $database;
+    private $database;
 //
 //    /**
 //     * ExtendDatabase constructor.
 //     * @param $database
 //     */
-//    public function __construct(Nette\Database\Context $database) {
-//        $this->database = $database;
-//    }
+    public function __construct(Nette\Database\Context $database) {
+        $this->database = $database;
+    }
 
     public function runProcedure($statement) {
 //        var_dump($statement);
 //        die();
-        $count = $this->getConnection()->getPdo()->exec($statement);
-        return $count;
+        $output = $this->database->getConnection()->getPdo()->exec($statement);
+        return $output;
+    }
+
+    public function query($query)
+    {
+        return $this->database->query();
     }
 //
 //    public function imageSave(Nette\Http\FileUpload $image, $description, $idDecoration = NULL) {

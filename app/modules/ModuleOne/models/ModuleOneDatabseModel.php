@@ -13,12 +13,13 @@ use Nette;
 
 class ModuleOneDatabseModel
 {
+    /** @var  ExtendDatabase*/
     private $database;
 
 
-    public function __construct(ExtendDatabase $databaseOne)
+    public function __construct(Nette\Database\Context $databaseTwo)
     {
-        $this->database = $databaseOne;
+        $this->database = new ExtendDatabase($databaseTwo);
     }
 
 
