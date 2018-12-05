@@ -8,6 +8,7 @@
 
 namespace App\ModuleOne;
 
+use Extend\Database\ExtendDatabase;
 use Nette;
 
 class ModuleOneDatabseModel
@@ -15,7 +16,7 @@ class ModuleOneDatabseModel
     private $database;
 
 
-    public function __construct(Nette\Database\Context $databaseOne)
+    public function __construct(ExtendDatabase $databaseOne)
     {
         $this->database = $databaseOne;
     }
