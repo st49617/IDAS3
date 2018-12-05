@@ -27,7 +27,12 @@ class ExtendDatabase{
     public function runProcedure($statement) {
 //        var_dump($statement);
 //        die();
-        $output = $this->database->getConnection()->getPdo()->exec($statement);
+        $pdo = $this->database->getConnection()->getPdo();
+
+        $pdo->beginTransaction();
+        $output = $pdo->exec($statement);
+        $pdo->commit();
+
         return $output;
     }
 
